@@ -43,7 +43,7 @@ namespace ConcoleUI.Tests
             var result = ColorManager.GetAll();
             if (result != null)
             {
-                foreach (var color in result)
+                foreach (var color in result.Data)
                 {
                     Console.WriteLine("Renk : {0}", color.ColorName);
                 }
@@ -61,7 +61,7 @@ namespace ConcoleUI.Tests
 
             if (result != null)
             {
-                Console.WriteLine("Renk : {0}", result.ColorName);
+                Console.WriteLine("Renk : {0}",result.Data);
             }
             else
             {

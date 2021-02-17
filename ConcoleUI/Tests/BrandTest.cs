@@ -43,7 +43,7 @@ namespace ConcoleUI.Tests
             var result = brandManager.GetAll();
             if (result != null)
             {
-                foreach (var brand in result)
+                foreach (var brand in result.Data)
                 {
                     Console.WriteLine("Marka : {0}", brand.BrandName);
                 }
@@ -60,7 +60,7 @@ namespace ConcoleUI.Tests
             var result = brandManager.GetById(brandID);
             if (result != null)
             {
-                Console.WriteLine("Marka : {0}",result.BrandName);
+                Console.WriteLine("Marka : {0}",result.Data);
             }
             else
             {

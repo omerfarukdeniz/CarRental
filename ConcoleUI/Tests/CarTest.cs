@@ -49,7 +49,7 @@ namespace ConcoleUI.Tests
             var result = carManager.GetAll();
             if (result != null)
             {
-                foreach (var car in result)
+                foreach (var car in result.Data)
                 {
                     Console.WriteLine("Araç : {0} - Günlük Fiyat : {1}", car.CarName, car.DailyPrice);
                 }
@@ -80,7 +80,7 @@ namespace ConcoleUI.Tests
             var result = carManager.GetCarDetails();
             if (result != null)
             {
-                foreach (var car in result)
+                foreach (var car in result.Data)
                 {
                     Console.WriteLine("Araç : {0} - Günlük Fiyat : {1} - Renk : {2} - Marka : {3}", car.CarName, car.DailyPrice, car.ColorName, car.BrandName);
                 }
