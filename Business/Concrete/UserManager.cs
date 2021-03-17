@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,30 +15,19 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-        public IResult Add(User user)
+        public void Add(User user)
         {
             _userDal.Add(user);
-            return new SuccessResult();
-        }
-        public IResult Update(User user)
-        {
-            _userDal.Update(user);
-            return new SuccessResult();
-        }
-        public IResult Delete(int userId)
-        {
-            _userDal.Delete(new User { Id = userId });
-            return new SuccessResult();
         }
 
-        public IDataResult<List<User>> GetAll()
+        public User GetByMail(string email)
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll());
+            return _userDal.Get(u => u.Email == email);
         }
 
-        public IDataResult<User> GetById(int userId)
+        public List<OperationClaim> GetClaims(User user)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u => u.Id == userId));
+            return _userDal.GetClaims(user);
         }
     }
 }
